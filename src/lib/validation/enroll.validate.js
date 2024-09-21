@@ -7,16 +7,7 @@ export const enrollSchema = z.object({
     .min(12, "You must be at least 12 years old")
     .max(100),
   education: z.enum(
-    [
-      "Grade 6",
-      "Grade 7",
-      "Grade 8",
-      "Grade 9",
-      "Grade 10",
-      "collage",
-      "university",
-      "Graduated",
-    ],
+    ["Grade 9", "Grade 10", "collage", "university", "Graduated"],
     "Education is required"
   ),
   gender: z.enum(["Male", "Female"], "Please select a gender"),

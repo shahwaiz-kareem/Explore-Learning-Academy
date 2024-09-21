@@ -1,6 +1,6 @@
 "use server";
 
-import { connnectToDb } from "@/db/db";
+import { connectToDb } from "@/db/db";
 import { Contact } from "@/models/contact.model";
 import { revalidatePath } from "next/cache";
 
@@ -9,7 +9,7 @@ const sendRes = (res) => {
 };
 
 export const sendContactDetails = async (userData) => {
-  await connnectToDb();
+  await connectToDb();
 
   try {
     if (!userData)
@@ -25,7 +25,7 @@ export const sendContactDetails = async (userData) => {
   }
 };
 export const getContactDetails = async () => {
-  await connnectToDb();
+  await connectToDb();
 
   try {
     const res = await Contact.find().lean();
@@ -36,7 +36,7 @@ export const getContactDetails = async () => {
   }
 };
 export const deleteContact = async (_id) => {
-  await connnectToDb();
+  await connectToDb();
 
   try {
     const res = await Contact.findByIdAndDelete(_id).lean();

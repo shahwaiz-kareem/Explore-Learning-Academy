@@ -1,6 +1,6 @@
 "use server";
 
-import { connnectToDb } from "@/db/db";
+import { connectToDb } from "@/db/db";
 
 import { Student } from "@/models/student.model";
 
@@ -9,7 +9,7 @@ const sendRes = (res) => {
 };
 
 export const enrollStudent = async (userData) => {
-  await connnectToDb();
+  await connectToDb();
 
   try {
     if (!userData)
@@ -26,17 +26,18 @@ export const enrollStudent = async (userData) => {
   }
 };
 export const getStudents = async () => {
-  await connnectToDb();
+  await connectToDb();
 
   try {
-    const data = await Student.find().lean();
+    const data = await Student.find().sort({ createdAt: 1 }).lean();
     return sendRes(data);
   } catch (error) {
     throw new Error(error.message);
   }
 };
+
 export const getStudentById = async (_id) => {
-  await connnectToDb();
+  await connectToDb();
 
   try {
     const data = await Student.findById({ _id }).lean();
