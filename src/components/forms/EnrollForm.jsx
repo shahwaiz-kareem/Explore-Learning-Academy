@@ -80,7 +80,7 @@ const EnrollForm = () => {
             <option value="Grade 10">Grade 10</option>
             <option value="collage">Collage Student</option>
             <option value="university">University Student</option>
-            <option value="Graduation">Graduated</option>
+            <option value="graduated">Graduated</option>
           </select>
         </div>
         {errors.education && (

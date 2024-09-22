@@ -2,8 +2,7 @@ import { RiDashboardLine } from "react-icons/ri";
 import { BiBook, BiPhoneCall } from "react-icons/bi";
 import { AiOutlineUsergroupAdd } from "react-icons/ai";
 import { AiOutlineQuestionCircle } from "react-icons/ai";
-import { AiOutlineDatabase } from "react-icons/ai";
-
+import { BiCog } from "react-icons/bi";
 export const navList = [
   {
     heading: "ADMIN",
@@ -15,7 +14,7 @@ export const navList = [
         icon: AiOutlineUsergroupAdd,
       },
       { name: "Contact info", href: "/dashboard/contact", icon: BiPhoneCall },
-      { name: "Details", href: "/dashboard/details", icon: AiOutlineDatabase },
+      { name: "Settings", href: "/dashboard/settings", icon: BiCog },
       { name: "FAQs", href: "/dashboard/faqs", icon: AiOutlineQuestionCircle },
     ],
   },

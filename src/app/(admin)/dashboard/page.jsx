@@ -1,9 +1,11 @@
+import { getStudentsStatastics } from "@/actions/student.action";
 import StatusContainer from "@/components/dashboard/StatusContainer";
 
-const Page = () => {
+const Page = async () => {
+  const data = await getStudentsStatastics();
   return (
     <>
-      <StatusContainer />
+      <StatusContainer stats={data} />
     </>
   );
 };

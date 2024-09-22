@@ -2,12 +2,13 @@ const { z } = require("zod");
 
 export const enrollSchema = z.object({
   name: z.string().min(2, "Name is required"),
+  father: z.string().min(2, "Father's Name is required"),
   age: z
     .number("Age is required")
     .min(12, "You must be at least 12 years old")
     .max(100),
   education: z.enum(
-    ["Grade 9", "Grade 10", "collage", "university", "Graduated"],
+    ["Grade 9", "Grade 10", "collage", "university", "graduated"],
     "Education is required"
   ),
   gender: z.enum(["Male", "Female"], "Please select a gender"),

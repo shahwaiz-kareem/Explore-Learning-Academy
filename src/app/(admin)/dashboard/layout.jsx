@@ -1,5 +1,5 @@
 import { RootContextProvider } from "@/context/RootContext";
-import "./globals.css";
+import "../globals.css";
 import TopLoader from "@/components/shared/TopLoader";
 import Navbar from "@/components/dashboard/Navbar";
 import Sidebar from "@/components/dashboard/Sidebar";
