@@ -6,9 +6,9 @@ import TopLoader from "@/components/shared/TopLoader";
 import Footer from "@/components/shared/Footer";
 import Notify from "@/components/shared/Notify";
 export const metadata = {
-  title: "MountainCoders",
+  title: "ExploreLearning AcademyYasin",
   description:
-    "Welcome to MountainCoders, we have been providing tech and coding education  in  Yasin valley for many years with a dreame to make every citizen digitalize.",
+    "Welcome to ExploreLearning AcademyYasin, we have been providing tech and coding education  in  Yasin valley for many years with a dreame to make every citizen digitalize.",
 };
 
 const ubuntu = Ubuntu({ weight: "400", subsets: ["latin"] });

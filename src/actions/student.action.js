@@ -5,21 +5,16 @@ import { Batch } from "@/models/batch.model";
 import { ObjectId } from "mongodb";
 import { Student } from "@/models/student.model";
 import { revalidatePath } from "next/cache";
-import { getBatchesCount, registerBatch } from "./batch.action";
-import { Setting } from "@/models/settings.model";
+import {
+  getBatchesCount,
+  reConstructBatches,
+  registerBatch,
+} from "./batch.action";
 
 const sendRes = (res) => {
   return JSON.parse(JSON.stringify(res));
 };
-const getSettings = async () => {
-  let settings = {
-    maxStudents: 0,
-  };
 
-  const res = await Setting.findOne({});
-  settings.maxStudents = res.maxStudents;
-  return settings;
-};
 export const enrollStudent = async (userData) => {
   await connectToDb();
 
@@ -27,17 +22,19 @@ export const enrollStudent = async (userData) => {
     if (!userData)
       return sendRes({ success: false, message: "Your data is incorrect" });
     const student = await Student.create(userData);
-    const batches = await getBatchesCount();
+    const res = await getBatchesCount();
 
-    if (batches.count === 0) {
+    if (res.count === 0) {
       await registerBatch(1);
     } else {
       await Batch.findOneAndUpdate(
-        { batch_no: batches.count },
+        { batch_no: res.count },
         { $push: { students: student } }
       );
     }
     revalidatePath("dashboard/batches");
+    revalidatePath("dashboard/");
+    revalidatePath("/");
     return sendRes({
       success: true,
       message:
@@ -86,47 +83,10 @@ export const deleteStudent = async (_id, batch_no) => {
       { batch_no },
       { $pull: { students: { _id: new ObjectId(_id) } } }
     );
-
-    const dbBatches = await Batch.find();
-    await Batch.deleteMany({});
-
-    const dbStudents = await getStudents();
-    const maxStudents = (await getSettings()).maxStudents;
-    let i = 0;
-    const count = Math.ceil(dbStudents.length / maxStudents);
-    const newBatches = [];
-
-    while (i < count) {
-      const currentBatchStudents = dbStudents.slice(
-        i * maxStudents,
-        (i + 1) * maxStudents
-      );
-
-      const totalStudents = currentBatchStudents.length;
-
-      const previousBatch = dbBatches[i] || {};
-
-      newBatches.push({
-        batch_no: i + 1,
-        active: previousBatch.active || false,
-        students: currentBatchStudents,
-        totalStudents,
-        completed: totalStudents === maxStudents,
-        startDate: previousBatch.startDate || Date.now(),
-      });
-
-      i++;
-    }
-
-    console.log(newBatches, batch_no);
-    await Batch.insertMany(newBatches);
-
-    revalidatePath("dashboard/batches");
-
+    const res = await reConstructBatches();
     return sendRes({
       success: true,
-      message: "Student deleted and batches updated",
-      data: newBatches[batch_no - 1] || null,
+      data: res.batches[batch_no - 1],
     });
   } catch (error) {
     throw new Error(

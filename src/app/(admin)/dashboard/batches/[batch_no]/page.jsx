@@ -39,6 +39,8 @@ const Page = ({ params }) => {
   };
 
   const deleteStudentFromDb = async (_id) => {
+    const permission = confirm("Are you sure you want to delete the student?");
+    if (!permission) return;
     setLoading(true);
     const batchData = await deleteStudent(_id, params.batch_no);
     setLoading(false);

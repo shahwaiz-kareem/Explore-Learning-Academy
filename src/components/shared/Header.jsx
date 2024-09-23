@@ -1,24 +1,19 @@
-import { Poppins } from "next/font/google";
 import Link from "next/link";
 import Hamburger from "../header/Hamburger";
 import Menu from "../header/Menu";
 import { navList } from "@/constants/navlist";
-
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
-});
+import Image from "next/image";
 
 const Header = () => {
   return (
-    <header className="sticky top-0 z-50 flex items-center justify-between bg-gradient-to-r from-green-400 via-teal-400 to-blue-400 py-4 px-4 shadow-lg">
+    <header className="sticky top-0 z-50 flex items-center justify-between bg-gradient-to-r from-teal-400 via-teal-400 to-blue-400 px-4 shadow-lg">
       <Menu />
-      <div
-        className={`text-base sm:text-lg overflow-hidden md:text-xl lg:text-2xl md:block font-bold text-white tracking-widest ${poppins.className} hover:scale-105 transition-transform duration-300`}
-      >
-        <span className="text-yellow-300">{"<"}</span>MountainCoders
-        <span className="text-yellow-300">{"/>"}</span>
-      </div>
+      <Image
+        className="py-1 "
+        src={"/assets/logo.png"}
+        height={20}
+        width={75}
+      />
 
       <div className="hidden sm:flex items-center gap-8">
         {navList.map((item) => {

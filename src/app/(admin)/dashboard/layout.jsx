@@ -7,8 +7,8 @@ import Container from "@/components/dashboard/Container";
 import Notify from "@/components/shared/Notify";
 
 export const metadata = {
-  title: "Dashboard || MountainCoders",
-  description: "This is MountainCoders dashboard",
+  title: "Dashboard || ExploreLearning AcademyYasin",
+  description: "This is ExploreLearning AcademyYasin dashboard",
 };
 
 export default function RootLayout({ children }) {

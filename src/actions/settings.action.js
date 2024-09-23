@@ -15,9 +15,23 @@ export const upsertSettings = async (data) => {
       { new: true, upsert: true }
     );
     revalidatePath("/dashboard/settings");
+    revalidatePath("/");
+    revalidatePath("/enroll");
+    revalidatePath("/details");
+
     return sendRes(settings);
   } catch (error) {
     console.log(error);
     throw new Error("Error updating settings: " + error.message);
+  }
+};
+
+export const getSettings = async () => {
+  try {
+    await connectToDb();
+    const settings = await Setting.findOne({}).lean();
+    return sendRes(settings);
+  } catch (error) {
+    return sendRes(error.message);
   }
 };

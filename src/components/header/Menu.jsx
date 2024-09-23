@@ -3,13 +3,8 @@ import { RootContext } from "@/context/RootContext";
 import { useContext } from "react";
 import { navList } from "@/constants/navlist";
 import Link from "next/link";
-import { Poppins } from "next/font/google";
 
-// Load the font for consistency with the header
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "600"],
-});
+import Image from "next/image";
 
 const Menu = () => {
   const context = useContext(RootContext);
@@ -19,17 +14,15 @@ const Menu = () => {
       <div
         className={`fixed transition-transform ${
           showMenu ? "translate-x-0" : "-translate-x-full"
-        } left-0 top-0 bg-gradient-to-br from-green-400 via-teal-400 to-blue-400 shadow-lg h-screen w-2/3 z-40 flex flex-col justify-between p-6 ease-in-out duration-500`}
+        } left-0 top-0 bg-gradient-to-br from-teal-400 via-teal-400 to-blue-400shadow-lg h-screen w-2/3 z-40 flex flex-col justify-between p-6 ease-in-out duration-500`}
       >
-        {/* Logo */}
-        <div
-          className={`  overflow-hidden text-sm sm:text-lg md:text-xl lg:text-2xl font-bold text-white tracking-wider ${poppins.className}`}
-        >
-          <span className="text-yellow-300">{"<"}</span>MountainCoders
-          <span className="text-yellow-300">{"/>"}</span>
-        </div>
+        <Image
+          className=" py-1"
+          src={"/assets/logo.png"}
+          height={20}
+          width={75}
+        />
 
-        {/* Navigation Links */}
         <nav className="flex flex-col gap-6 mt-8">
           {navList.map((item) => (
             <div

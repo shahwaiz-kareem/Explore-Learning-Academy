@@ -29,7 +29,8 @@ const Page = () => {
             <div className="flex items-center text-lg text-gray-700 mb-4">
               <FaEnvelope className="mr-2 text-green-500" />
               <span>
-                <strong>Email:</strong> mountaincoders.org@gmail.com
+                <strong>Email:</strong> ExploreLearning
+                AcademyYasin.org@gmail.com
               </span>
             </div>
             <p className="text-lg text-gray-700 mb-4">

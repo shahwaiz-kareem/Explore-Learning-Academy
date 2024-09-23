@@ -27,7 +27,7 @@ const StatusContainer = ({ stats }) => {
           <div className="flex justify-between items-center mb-6">
             <div>
               <div className="text-sm font-medium text-gray-500">
-                Students Added Today
+                Students Enrolled Today
               </div>
               <div className="flex items-center mb-1">
                 <div className="text-3xl font-semibold text-gray-800">

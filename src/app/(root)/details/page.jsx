@@ -1,4 +1,7 @@
+import { getDetails } from "@/actions/batch.action";
 import Image from "next/image";
+import Link from "next/link";
+import { AiFillInstagram } from "react-icons/ai";
 import {
   FaUserGraduate,
   FaLaptopCode,
@@ -8,21 +11,40 @@ import {
   FaDollarSign,
 } from "react-icons/fa";
 
-const Page = () => {
+const Page = async () => {
+  const months = [
+    "january",
+    "februry",
+    "march",
+    "april",
+    "May",
+    "june",
+    "july",
+    "august",
+    "september",
+    "october",
+    "november",
+    "december",
+  ];
+  const data = await getDetails();
+  const date = new Date(data.startDate);
+  const startDate = `${date.getDate()} ${
+    months[date.getUTCMonth()]
+  }, ${date.getFullYear()}`;
+  console.log(data);
   return (
     <div className="bg-gray-100 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
-        {/* Header Section */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-extrabold text-gray-900 mb-4">
             Details and Information
           </h1>
           <p className="text-lg text-gray-600">
-            Discover how Mountain Coders is transforming the landscape of web
-            development education.
+            Discover how Explore Learning Academy Yasin is transforming the
+            landscape of web development education.
           </p>
         </div>
-        {/* Mission Section */}
+
         <div className="bg-white shadow-lg rounded-lg p-8 mb-12 ">
           <h2 className="text-3xl font-bold text-gray-800 mb-6">Our Mission</h2>
           <p className="text-lg text-gray-700">
@@ -31,14 +53,15 @@ const Page = () => {
             traditional knowledge and modern advancements.
           </p>
         </div>
-        {/* Courses Offered Section */}
+
         <div className="bg-white shadow-lg rounded-lg p-8 mb-12 ">
           <h2 className="text-3xl font-bold text-gray-800 mb-6">
-            Courses Offered
+            Tech-Stack offered
           </h2>
           <p className="text-lg text-gray-700 mb-4">
-            Our full-stack course covers a comprehensive range of technologies
-            in just 2 months. Learn the essentials of web development with:
+            Our full-stack (mern-stack) course covers a comprehensive range of
+            technologies in just {data.duration} months. Learn the essentials of
+            web development with:
           </p>
           <ul className="list-disc list-inside text-lg text-gray-700 space-y-2">
             <li>HTML</li>
@@ -48,6 +71,7 @@ const Page = () => {
             <li>Node.js</li>
             <li>MongoDB</li>
             <li>Express</li>
+            <li>React.js</li>
             <li>Project(hands-On)</li>
           </ul>
         </div>
@@ -63,10 +87,7 @@ const Page = () => {
                 <span className="text-xl font-semibold text-gray-800">
                   Start Date:
                 </span>
-                <p className="text-lg text-gray-700">
-                  October 1, 2024 (2-months)
-                </p>{" "}
-                {/* Replace with dynamic date if needed */}
+                <p className="text-lg capitalize text-gray-700">{startDate}</p>{" "}
               </div>
             </div>
             <div className="flex items-center space-x-4">
@@ -75,8 +96,14 @@ const Page = () => {
                 <span className="text-xl font-semibold text-gray-800">
                   Time:
                 </span>
-                <p className="text-lg text-gray-700">6:00 PM - 8:00 PM</p>{" "}
-                {/* Replace with actual class time */}
+                <p className="text-lg text-gray-700  ">
+                  First-Shift:{" "}
+                  <span className="uppercase">{data?.shiftTiming1} </span>
+                </p>
+                <p className="text-lg text-gray-700  ">
+                  Second-Shift:{" "}
+                  <span className="uppercase">{data?.shiftTiming2} </span>
+                </p>
               </div>
             </div>
             <div className="flex items-center space-x-4">
@@ -85,8 +112,9 @@ const Page = () => {
                 <span className="text-xl font-semibold text-gray-800">
                   Fee:
                 </span>
-                <p className="text-lg text-gray-700">$500</p>{" "}
-                {/* Replace with actual fee */}
+                <p className="text-lg text-gray-700">
+                  {data?.feePerMonth}/month
+                </p>
               </div>
             </div>
           </div>
@@ -109,10 +137,22 @@ const Page = () => {
               </h3>
               <p className="text-lg text-gray-700 mt-2">
                 Shahwaiz Karim is a full-stack software developer with over 4
-                years of intense experience and learning. With a passion for
-                technology and education, Shahwaiz is dedicated to helping
-                students achieve their career goals in web development.
+                years of intense experience. With a passion for technology and
+                education, Shahwaiz is dedicated to helping students achieve
+                their career goals in web development. Instagram account:
               </p>
+              <Link
+                target="_blank"
+                className="inline-flex mt-1 items-center  "
+                href={"https://www.instagram.com/__shahwaix_2k23/"}
+              >
+                <AiFillInstagram
+                  className={"text-red-500 text-2xl font-bold"}
+                />
+                <span className="text-sm font-semibold text-gray-800">
+                  @__shahwaix_2k23
+                </span>
+              </Link>
             </div>
           </div>
         </div>

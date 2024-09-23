@@ -5,28 +5,19 @@ import { Batch } from "@/models/batch.model";
 import { getStudents } from "./student.action";
 import { revalidatePath } from "next/cache";
 import { Setting } from "@/models/settings.model";
+import { getSettings } from "./settings.action";
 
 const sendRes = (res) => {
   return JSON.parse(JSON.stringify(res));
 };
-
-const getSetting = async () => {
-  let settings = {
-    maxStudents: 0,
-  };
-
-  const res = await Setting.findOne({});
-  settings.maxStudents = res.maxStudents;
-  return settings;
-};
-
+const settings = await getSettings();
 export const getBatches = async () => {
   await connectToDb();
 
   try {
     const students = await getStudents();
     const dbBatches = await Batch.find();
-    const maxStudents = (await getSetting()).maxStudents;
+    const maxStudents = settings.maxStudents;
     const batches = [];
     const count = Math.ceil(students.length / maxStudents);
     let i = 0;
@@ -77,7 +68,7 @@ export const registerBatch = async (batch_no) => {
   await connectToDb();
 
   try {
-    const maxStudents = (await getSetting()).maxStudents;
+    const maxStudents = settings.maxStudents;
 
     const students = await getStudents();
     const currentBatchStudents = students.slice(
@@ -93,6 +84,7 @@ export const registerBatch = async (batch_no) => {
     });
 
     revalidatePath(`dashboard/batches`);
+    revalidatePath(`/`);
     return sendRes({
       success: true,
       message: "Batch is registered successfully",
@@ -109,6 +101,8 @@ export const updateBatch = async (_id, batchInfo) => {
   try {
     await Batch.findByIdAndUpdate(_id, { $set: { ...batchInfo } });
     revalidatePath("/dashboard/batches");
+    revalidatePath("/details");
+
     return sendRes({
       success: true,
       message: "Batch is registered successfully",
@@ -124,7 +118,7 @@ export const getBatchesCount = async () => {
 
   try {
     const data = await Batch.find();
-    revalidatePath("/dashboard/batches");
+
     return sendRes({
       count: data.length,
       success: true,
@@ -132,6 +126,73 @@ export const getBatchesCount = async () => {
     });
   } catch (error) {
     console.log(error);
+    throw new Error(error.message);
+  }
+};
+export const reConstructBatches = async () => {
+  await connectToDb();
+
+  try {
+    const dbBatches = await Batch.find();
+    await Batch.deleteMany({});
+
+    const dbStudents = await getStudents();
+    const maxStudents = settings.maxStudents;
+    let i = 0;
+    const count = Math.ceil(dbStudents.length / maxStudents);
+    const newBatches = [];
+
+    while (i < count) {
+      const currentBatchStudents = dbStudents.slice(
+        i * maxStudents,
+        (i + 1) * maxStudents
+      );
+
+      const totalStudents = currentBatchStudents.length;
+
+      const previousBatch = dbBatches[i] || {};
+
+      newBatches.push({
+        batch_no: i + 1,
+        active: previousBatch.active || false,
+        students: currentBatchStudents,
+        totalStudents,
+        completed: totalStudents === maxStudents,
+        startDate: previousBatch.startDate || Date.now(),
+      });
+
+      i++;
+    }
+
+    await Batch.insertMany(newBatches);
+
+    revalidatePath("dashboard/batches");
+
+    return sendRes({
+      success: true,
+      batches: newBatches,
+    });
+  } catch (error) {
+    console.log(error);
+    throw new Error(error.message);
+  }
+};
+
+export const getDetails = async () => {
+  await connectToDb();
+
+  try {
+    const maxStudents = settings.maxStudents;
+    const activeBatch = await Batch.findOne({ active: true }).lean();
+    let availableSeats = 0;
+
+    if (activeBatch) availableSeats = maxStudents - activeBatch.students.length;
+    return sendRes({
+      availableSeats,
+      startDate: activeBatch?.startDate || new Date(),
+      ...settings,
+    });
+  } catch (error) {
     throw new Error(error.message);
   }
 };
