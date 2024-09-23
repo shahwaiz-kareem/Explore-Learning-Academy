@@ -64,8 +64,7 @@ const Technologies = () => {
             <div className="">
               <h3 className="font-bold"> Node.js</h3>
               <p className="text-sm text-muted-foreground">
-                Node.js and its frameworks like express.js for backend
-                development
+                Node.js and its frameworks for backend development
               </p>
             </div>
           </div>
@@ -73,7 +72,28 @@ const Technologies = () => {
         <div className="hover:transform overflow-hidden rounded-lg border bg-white select-none hover:shadow hover:shadow-teal-200 p-2">
           <div className="flex h-[180px] flex-col justify-between rounded-md p-6">
             <div className="h-14 w-14">
-              <Image src={"/assets/icons/db.png"} width={512} height={512} />
+              <Image
+                src={"/assets/icons/express.png"}
+                width={512}
+                height={512}
+              />
+            </div>
+            <div className="">
+              <h3 className="font-bold"> Express.js</h3>
+              <p className="text-sm text-muted-foreground">
+                Express.js a framework of Node.js
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="hover:transform overflow-hidden rounded-lg border bg-white select-none hover:shadow hover:shadow-teal-200 p-2">
+          <div className="flex h-[180px] flex-col justify-between rounded-md p-6">
+            <div className="h-14 w-14">
+              <Image
+                src={"/assets/icons/mongodb.png"}
+                width={512}
+                height={512}
+              />
             </div>
             <div className="">
               <h3 className="font-bold">Database</h3>
@@ -92,6 +112,33 @@ const Technologies = () => {
               <h3 className="font-bold">API development</h3>
               <p className="text-sm text-muted-foreground">
                 Rest api development to build modern fullstack applications
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="hover:transform overflow-hidden rounded-lg border bg-white select-none hover:shadow hover:shadow-teal-200 p-2">
+          <div className="flex h-[180px] flex-col justify-between rounded-md p-6">
+            <div className="h-14 w-14">
+              <Image src={"/assets/icons/react.png"} width={512} height={512} />
+            </div>
+            <div className="">
+              <h3 className="font-bold">React.js</h3>
+              <p className="text-sm text-muted-foreground">
+                Framework of JavaScript to Build SPAs
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="hover:transform overflow-hidden rounded-lg border bg-white select-none hover:shadow hover:shadow-teal-200 p-2">
+          <div className="flex h-[180px] flex-col justify-between rounded-md p-6">
+            <div className="h-14 w-14">
+              <Image src={"/assets/icons/db.png"} width={512} height={512} />
+            </div>
+            <div className="">
+              <h3 className="font-bold">Deployment</h3>
+              <p className="text-sm text-muted-foreground">
+                Deploy your apps to server and make them live
               </p>
             </div>
           </div>

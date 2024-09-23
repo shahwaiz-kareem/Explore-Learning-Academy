@@ -10,7 +10,10 @@ import {
   FaClock,
   FaDollarSign,
 } from "react-icons/fa";
-
+export const metadata = {
+  title: "Detail || Explore Learning Academy Yasin",
+  description: "Get more details about this course.",
+};
 const Page = async () => {
   const months = [
     "january",
@@ -82,7 +85,7 @@ const Page = async () => {
           </h2>
           <div className="space-y-4">
             <div className="flex items-center space-x-4">
-              <FaCalendarAlt className="text-2xl text-green-500" />
+              <FaCalendarAlt className="text-2xl text-[#00a1b4]" />
               <div>
                 <span className="text-xl font-semibold text-gray-800">
                   Start Date:
@@ -91,7 +94,7 @@ const Page = async () => {
               </div>
             </div>
             <div className="flex items-center space-x-4">
-              <FaClock className="text-2xl text-green-500" />
+              <FaClock className="text-2xl text-[#00a1b4]" />
               <div>
                 <span className="text-xl font-semibold text-gray-800">
                   Time:
@@ -107,7 +110,7 @@ const Page = async () => {
               </div>
             </div>
             <div className="flex items-center space-x-4">
-              <FaDollarSign className="text-2xl text-green-500" />
+              <FaDollarSign className="text-2xl text-[#00a1b4]" />
               <div>
                 <span className="text-xl font-semibold text-gray-800">
                   Fee:
@@ -127,7 +130,7 @@ const Page = async () => {
             <Image
               src="/assets/profile.png"
               alt="Shahwaiz Karim"
-              className="rounded-full border-4 border-green-500 w-32 h-32 object-cover"
+              className="rounded-full border-4 border-[#00a1b4] w-32 h-32 object-cover"
               width={128}
               height={128}
             />
@@ -162,7 +165,7 @@ const Page = async () => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="flex items-start space-x-4">
-              <FaTachometerAlt className="text-5xl text-green-500" />
+              <FaTachometerAlt className="text-5xl text-[#00a1b4]" />
               <div>
                 <h3 className="text-xl mt-2 font-semibold text-gray-800">
                   Fast Track Learning
@@ -174,7 +177,7 @@ const Page = async () => {
               </div>
             </div>
             <div className="flex items-start space-x-4">
-              <FaLaptopCode className="text-5xl text-green-500" />
+              <FaLaptopCode className="text-5xl text-[#00a1b4]" />
               <div>
                 <h3 className="text-xl mt-2 font-semibold text-gray-800">
                   Hands-On Experience
@@ -186,7 +189,7 @@ const Page = async () => {
               </div>
             </div>
             <div className="flex items-start space-x-4">
-              <FaUserGraduate className="text-4xl text-green-500" />
+              <FaUserGraduate className="text-4xl text-[#00a1b4]" />
               <div>
                 <h3 className="text-xl mt-1 font-semibold text-gray-800">
                   Expert Guidance

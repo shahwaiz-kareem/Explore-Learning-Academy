@@ -36,7 +36,7 @@ const EnrollForm = () => {
 
       <div className="flex px-4 flex-col gap-6">
         <div className="flex  items-center gap-2">
-          <FaUser className="text-green-500 text-xl" />
+          <FaUser className="text-[#00a1b4] text-xl" />
           <input
             type="text"
             placeholder="Full Name"
@@ -46,7 +46,7 @@ const EnrollForm = () => {
         </div>
         {errors.name && <p className="text-red-500">{errors.name.message}</p>}
         <div className="flex  items-center gap-2">
-          <FaUser className="text-green-500 text-xl" />
+          <FaUser className="text-[#00a1b4] text-xl" />
           <input
             type="text"
             placeholder="Father's Name"
@@ -59,7 +59,7 @@ const EnrollForm = () => {
         )}
 
         <div className="flex items-center gap-2">
-          <FaUser className="text-green-500 text-xl" />
+          <FaUser className="text-[#00a1b4] text-xl" />
           <input
             type="number"
             placeholder="Age"
@@ -70,7 +70,7 @@ const EnrollForm = () => {
         {errors.age && <p className="text-red-500">{errors.age.message}</p>}
 
         <div className="flex items-center gap-2">
-          <FaGraduationCap className="text-green-500 text-xl" />
+          <FaGraduationCap className="text-[#00a1b4] text-xl" />
           <select
             {...register("education")}
             className="border border-gray-300 rounded px-4 py-2 w-full"
@@ -105,7 +105,7 @@ const EnrollForm = () => {
 
         {/* Phone */}
         <div className="flex items-center gap-2">
-          <FaPhone className="text-green-500 text-xl" />
+          <FaPhone className="text-[#00a1b4] text-xl" />
           <input
             type="tel"
             placeholder="Phone Number"
@@ -117,7 +117,7 @@ const EnrollForm = () => {
 
         {/* Email */}
         <div className="flex items-center gap-2">
-          <FaEnvelope className="text-green-500 text-xl" />
+          <FaEnvelope className="text-[#00a1b4] text-xl" />
           <input
             type="email"
             placeholder="Email Address"
@@ -161,7 +161,7 @@ const EnrollForm = () => {
 
       <button
         type="submit"
-        className="bg-gradient-to-br from-green-400 via-teal-400 to-blue-300 text-white rounded ml-4 px-6 py-2"
+        className="bg-gradient-to-br from-blue-400 via-teal-400 to-green-300  text-white rounded ml-4 px-6 py-2"
       >
         Enroll Now
       </button>

@@ -1,5 +1,3 @@
-import React from "react";
-
 export const Mission = () => {
   return (
     <div className="px-2 py-6 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-12 lg:px-6 lg:py-6">
@@ -19,7 +17,7 @@ export const Mission = () => {
             <div className="flex items-center justify-center w-14 h-14 mb-4 rounded-full bg-green-50">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-8 h-8 text-green-400"
+                className="w-8 h-8 text-[#00a1b4] "
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
@@ -54,7 +52,7 @@ export const Mission = () => {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="w-8 h-8 text-green-400"
+                className="w-8 h-8 text-[#00a1b4] "
               >
                 <path
                   strokeLinecap="round"
@@ -86,7 +84,7 @@ export const Mission = () => {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="w-8 h-8 text-green-400"
+                className="w-8 h-8 text-[#00a1b4] "
               >
                 <path
                   strokeLinecap="round"

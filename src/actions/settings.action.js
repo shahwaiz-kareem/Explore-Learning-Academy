@@ -3,6 +3,7 @@
 import { connectToDb } from "@/db/db";
 import { Setting } from "@/models/settings.model";
 import { revalidatePath } from "next/cache";
+import { reConstructBatches } from "./batch.action";
 const sendRes = (res) => {
   return JSON.parse(JSON.stringify(res));
 };
@@ -14,11 +15,12 @@ export const upsertSettings = async (data) => {
       { $set: data },
       { new: true, upsert: true }
     );
+    await reConstructBatches();
     revalidatePath("/dashboard/settings");
+    revalidatePath("/dashboard/batches");
     revalidatePath("/");
     revalidatePath("/enroll");
     revalidatePath("/details");
-
     return sendRes(settings);
   } catch (error) {
     console.log(error);
@@ -27,8 +29,8 @@ export const upsertSettings = async (data) => {
 };
 
 export const getSettings = async () => {
+  await connectToDb();
   try {
-    await connectToDb();
     const settings = await Setting.findOne({}).lean();
     return sendRes(settings);
   } catch (error) {

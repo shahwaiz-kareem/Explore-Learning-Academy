@@ -19,11 +19,14 @@ const Sidebar = () => {
         <Image className=" " src={"/assets/logo.png"} height={20} width={70} />
       </Link>
 
-      {navList.map((item, i) => (
-        <ul key={item.heading + i} className="mt-12 md:mt-6">
+      {navList.map((item) => (
+        <ul
+          key={`${item.heading}-${JSON.stringify(item.pages)}`}
+          className="mt-12 md:mt-6"
+        >
           <span className="text-gray-400 mt-2 font-bold">{item.heading}</span>
           {item.pages.map((page, i) => (
-            <li className="mb-6 group">
+            <li key={`${page.name}-${page.href}`} className="mb-6 group">
               <Link
                 href={page.href}
                 className="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100"

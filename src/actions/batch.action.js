@@ -4,13 +4,15 @@ import { connectToDb } from "@/db/db";
 import { Batch } from "@/models/batch.model";
 import { getStudents } from "./student.action";
 import { revalidatePath } from "next/cache";
-import { Setting } from "@/models/settings.model";
+
 import { getSettings } from "./settings.action";
 
 const sendRes = (res) => {
   return JSON.parse(JSON.stringify(res));
 };
+
 const settings = await getSettings();
+
 export const getBatches = async () => {
   await connectToDb();
 
@@ -21,7 +23,6 @@ export const getBatches = async () => {
     const batches = [];
     const count = Math.ceil(students.length / maxStudents);
     let i = 0;
-
     while (i < count) {
       const currentBatchStudents = students.slice(
         i * maxStudents,
@@ -32,13 +33,14 @@ export const getBatches = async () => {
       batches.push({
         batch_no: batches.length + 1,
         active: dbBatches[i] && dbBatches[i].active,
-        students: [],
+        students: currentBatchStudents,
         totalStudents,
         completed: totalStudents === maxStudents,
       });
 
       i++;
     }
+
     return sendRes({
       success: true,
       message: "Batches are created",

@@ -17,7 +17,7 @@ const StatusContainer = ({ stats }) => {
                 </div>
               </div>
             </div>
-            <div className="text-green-500">
+            <div className="text-[#00a1b4]">
               <FaUserGraduate size={40} />
             </div>
           </div>
@@ -35,7 +35,7 @@ const StatusContainer = ({ stats }) => {
                 </div>
               </div>
             </div>
-            <div className="text-blue-500">
+            <div className="text-[#00a1b4]">
               <FaUserPlus size={40} />
             </div>
           </div>

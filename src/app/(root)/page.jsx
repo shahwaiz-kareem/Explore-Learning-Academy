@@ -27,7 +27,7 @@ const Page = async () => {
             <h2 className=" mb-2 text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-3xl md:text-4xl lg:text-4xl">
               Empowering the Future of Coding{" "}
               <span className="text-gray-600 text-center">
-                Welcome to ExploreLearning AcademyYasin
+                Welcome to Explore Learning Academy Yasin
               </span>
             </h2>
             <span className="text-gray-700 text-base lg:text-lg">
@@ -52,7 +52,7 @@ const Page = async () => {
               </span>
               <span className="text-orange-600 ">{data.availableSeats}</span>
             </div>
-            <button className="bg-green-400 rounded-lg hover:bg-green-500 px-4 mt-2 py-2 text-white flex items-center justify-center">
+            <button className="bg-gradient-to-l from-[#00a1b4] via-[#00a8b4] to-[#00d899] rounded-lg hover:bg-green-500 px-4 mt-2 py-2 text-white flex items-center justify-center">
               <Link href={"/enroll"}>
                 {data.availableSeats > 0
                   ? "Enroll Now"

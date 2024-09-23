@@ -21,6 +21,7 @@ const Page = ({ params }) => {
   useEffect(() => {
     const fetchData = async () => {
       const batchData = await getBatch(params.batch_no);
+      console.log(batchData);
       setBatch(batchData?.data || null);
 
       if (!batchData.data) {

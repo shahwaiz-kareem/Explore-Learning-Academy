@@ -14,16 +14,17 @@ const Menu = () => {
       <div
         className={`fixed transition-transform ${
           showMenu ? "translate-x-0" : "-translate-x-full"
-        } left-0 top-0 bg-gradient-to-br from-teal-400 via-teal-400 to-blue-400shadow-lg h-screen w-2/3 z-40 flex flex-col justify-between p-6 ease-in-out duration-500`}
+        } left-0 top-0 bg-gradient-to-br from-[#00a1b4] via-[#00a8b4] to-[#00d899]  shadow-lg h-screen w-2/3 z-40 flex flex-col gap-4 p-6 ease-in-out duration-500`}
       >
         <Image
           className=" py-1"
           src={"/assets/logo.png"}
           height={20}
-          width={75}
+          alt="logo"
+          width={80}
         />
 
-        <nav className="flex flex-col gap-6 mt-8">
+        <nav className="flex flex-col gap-6 mt-2">
           {navList.map((item) => (
             <div
               key={item.name + "_menu"}

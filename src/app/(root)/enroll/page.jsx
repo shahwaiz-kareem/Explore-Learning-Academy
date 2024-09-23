@@ -1,7 +1,11 @@
 import { getDetails } from "@/actions/batch.action";
 import EnrollForm from "@/components/forms/EnrollForm";
 import Image from "next/image";
-
+export const metadata = {
+  title: "Enroll || Explore Learning Academy Yasin",
+  description:
+    "Enroll to explore learning academy yasin to make you future bright.",
+};
 const Page = async () => {
   const months = [
     "january",
@@ -43,11 +47,12 @@ const Page = async () => {
           <div className="flex-1">
             <EnrollForm />
           </div>
-          <div className="flex-1 p-6 rounded-lg shadow-2xl flex flex-col justify-center items-center bg-gradient-to-tr from-teal-400 via-teal-400 to-blue-400 text-white transform transition-all duration-300  hover:shadow-3xl">
+          <div className="flex-1 p-6 rounded-lg shadow-2xl flex flex-col justify-center items-center bg-gradient-to-tr from-[#00a1b4] via-[#00a8b4] to-[#00d899] text-white transform transition-all duration-300  hover:shadow-3xl">
             <Image
               className="py-2"
               src={"/assets/logo.png"}
               height={260}
+              alt="logo"
               width={342}
             />
             <h2 className="text-2xl font-semibold mb-4">Course Details</h2>
