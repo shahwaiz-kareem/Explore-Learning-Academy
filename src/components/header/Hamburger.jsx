@@ -6,7 +6,7 @@ import { useContext } from "react";
 const Hamburger = () => {
   const context = useContext(RootContext);
   const { setShowMenu } = context;
-  console.log("hello world");
+
   return (
     <div
       onClick={() => setShowMenu((prev) => !prev)}

@@ -34,7 +34,7 @@ const Page = async () => {
   const startDate = `${date.getDate()} ${
     months[date.getUTCMonth()]
   }, ${date.getFullYear()}`;
-  console.log(data);
+
   return (
     <div className="bg-gray-100 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">

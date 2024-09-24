@@ -4,7 +4,6 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 const Page = ({ params }) => {
-  console.log(params);
   const [formData, setFormData] = useState({
     startDate: "",
     batchName: "",

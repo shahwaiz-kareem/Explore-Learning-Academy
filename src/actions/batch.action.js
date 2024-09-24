@@ -104,7 +104,7 @@ export const registerBatch = async (batch_no) => {
 
 export const updateBatch = async (_id, batchInfo) => {
   await connectToDb();
-  console.log(_id);
+
   try {
     await Batch.findByIdAndUpdate(_id, { $set: { ...batchInfo } });
     revalidatePath("/dashboard/batches");
@@ -115,7 +115,6 @@ export const updateBatch = async (_id, batchInfo) => {
       message: "Batch is registered successfully",
     });
   } catch (error) {
-    console.log(error);
     throw new Error(error.message);
   }
 };
@@ -132,7 +131,6 @@ export const getBatchesCount = async () => {
       message: "Got all batches",
     });
   } catch (error) {
-    console.log(error);
     throw new Error(error.message);
   }
 };
@@ -181,7 +179,6 @@ export const reConstructBatches = async () => {
       batches: newBatches,
     });
   } catch (error) {
-    console.log(error);
     throw new Error(error.message);
   }
 };
