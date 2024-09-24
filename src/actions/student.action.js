@@ -109,7 +109,7 @@ export const getStudentsStatastics = async () => {
     const todaysData = await Student.find({
       createdAt: { $gte: startOfDay },
     }).lean();
-    revalidatePath("dashboard/");
+
     return sendRes({
       totalStudents: totalStudents.length,
       todaysStudents: todaysData.length,

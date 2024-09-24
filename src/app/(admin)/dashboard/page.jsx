@@ -1,6 +1,6 @@
 import { getStudentsStatastics } from "@/actions/student.action";
 import { FaUserGraduate, FaUserPlus } from "react-icons/fa";
-
+export const dynamic = "force-dynamic";
 const Page = async () => {
   const data = await getStudentsStatastics();
   return (
