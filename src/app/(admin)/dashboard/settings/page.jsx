@@ -1,8 +1,8 @@
+import { getSettings } from "@/actions/settings.action";
 import SettingsForm from "@/components/forms/settingsForm";
-import { Setting } from "@/models/settings.model";
 
 const Page = async () => {
-  const res = await Setting.findOne({}).lean();
+  const res = await getSettings();
   const { feePerMonth, maxStudents, duration, shiftTiming1, shiftTiming2 } =
     res;
   return (

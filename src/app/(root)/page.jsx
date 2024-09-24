@@ -33,14 +33,14 @@ const Page = async () => {
             <span className="text-gray-700 text-base lg:text-lg">
               Learn to build scalable web applications from scratch with our
               expert-led training. Get hands-on experience and the skills to
-              succeed in the web development industry. Join our {data.duration}
+              succeed in the web development industry. Join our {data?.duration}
               -month program and discover a new path to success.
             </span>
 
             <div className="text-lg mt-2 px-4">
               <div className="text-center  sm:text-start">
                 <p className="mb-4 font-semibold">
-                  {data.availableSeats > 0
+                  {data?.availableSeats > 0
                     ? "Note: Seats are available on a first-come, first-served basis."
                     : "Note: We  don't have any seat available now, But you can still enroll to next batch"}
                 </p>
@@ -50,11 +50,11 @@ const Page = async () => {
               <span className="text-gray-600 font-semibold">
                 Available seats:{" "}
               </span>
-              <span className="text-orange-600 ">{data.availableSeats}</span>
+              <span className="text-orange-600 ">{data?.availableSeats}</span>
             </div>
             <button className="bg-gradient-to-l from-[#00a1b4] via-[#00a8b4] to-[#00d899] rounded-lg hover:bg-green-500 px-4 mt-2 py-2 text-white flex items-center justify-center">
               <Link href={"/enroll"}>
-                {data.availableSeats > 0
+                {data?.availableSeats > 0
                   ? "Enroll Now"
                   : "Enroll in next batch"}
               </Link>

@@ -20,7 +20,12 @@ const Technologies = () => {
         <div className="hover: overflow-hidden rounded-lg border bg-white select-none hover:shadow hover:shadow-teal-200 p-2">
           <div className="flex h-[180px] flex-col justify-between rounded-md p-6">
             <div className="h-14 w-14">
-              <Image src={"/assets/icons/html.png"} width={512} height={512} />
+              <Image
+                src={"/assets/icons/html.png"}
+                width={512}
+                alt="html icon"
+                height={512}
+              />
             </div>
             <div className="">
               <h3 className="font-bold">HTML 5</h3>
@@ -33,7 +38,12 @@ const Technologies = () => {
         <div className="hover:transition-transform overflow-hidden  rounded-lg border bg-white select-none hover:shadow hover:shadow-teal-200 p-2">
           <div className="flex h-[180px] flex-col justify-between rounded-md p-6">
             <div className="h-14 w-14">
-              <Image src={"/assets/icons/css.png"} width={512} height={512} />
+              <Image
+                src={"/assets/icons/css.png"}
+                alt="css icon"
+                width={512}
+                height={512}
+              />
             </div>
             <div className="">
               <h3 className="font-bold">CSS 3</h3>
@@ -46,7 +56,12 @@ const Technologies = () => {
         <div className="hover:transform overflow-hidden rounded-lg border bg-white select-none hover:shadow hover:shadow-teal-200 p-2">
           <div className="flex h-[180px] flex-col justify-between rounded-md p-6">
             <div className="h-14 w-14">
-              <Image src={"/assets/icons/js.png"} width={512} height={512} />
+              <Image
+                src={"/assets/icons/js.png"}
+                width={512}
+                alt="js icon"
+                height={512}
+              />
             </div>
             <div className="">
               <h3 className="font-bold">JavaScript</h3>
@@ -59,7 +74,12 @@ const Technologies = () => {
         <div className="hover:transform overflow-hidden rounded-lg border bg-white select-none hover:shadow hover:shadow-teal-200 p-2">
           <div className="flex h-[180px] flex-col justify-between rounded-md p-6">
             <div className="h-14 w-14">
-              <Image src={"/assets/icons/node.png"} width={512} height={512} />
+              <Image
+                src={"/assets/icons/node.png"}
+                alt="node icon"
+                width={512}
+                height={512}
+              />
             </div>
             <div className="">
               <h3 className="font-bold"> Node.js</h3>
@@ -75,6 +95,7 @@ const Technologies = () => {
               <Image
                 src={"/assets/icons/express.png"}
                 width={512}
+                alt="express icon"
                 height={512}
               />
             </div>
@@ -93,6 +114,7 @@ const Technologies = () => {
                 src={"/assets/icons/mongodb.png"}
                 width={512}
                 height={512}
+                alt="mongodb"
               />
             </div>
             <div className="">
@@ -106,7 +128,12 @@ const Technologies = () => {
         <div className="hover:transform overflow-hidden rounded-lg border bg-white select-none hover:shadow hover:shadow-teal-200 p-2">
           <div className="flex h-[180px] flex-col justify-between rounded-md p-6">
             <div className="h-14 w-14">
-              <Image src={"/assets/icons/api.png"} width={512} height={512} />
+              <Image
+                src={"/assets/icons/api.png"}
+                alt="api icon"
+                width={512}
+                height={512}
+              />
             </div>
             <div className="">
               <h3 className="font-bold">API development</h3>
@@ -119,7 +146,12 @@ const Technologies = () => {
         <div className="hover:transform overflow-hidden rounded-lg border bg-white select-none hover:shadow hover:shadow-teal-200 p-2">
           <div className="flex h-[180px] flex-col justify-between rounded-md p-6">
             <div className="h-14 w-14">
-              <Image src={"/assets/icons/react.png"} width={512} height={512} />
+              <Image
+                src={"/assets/icons/react.png"}
+                alt="react.js icon"
+                width={512}
+                height={512}
+              />
             </div>
             <div className="">
               <h3 className="font-bold">React.js</h3>
@@ -133,7 +165,12 @@ const Technologies = () => {
         <div className="hover:transform overflow-hidden rounded-lg border bg-white select-none hover:shadow hover:shadow-teal-200 p-2">
           <div className="flex h-[180px] flex-col justify-between rounded-md p-6">
             <div className="h-14 w-14">
-              <Image src={"/assets/icons/db.png"} width={512} height={512} />
+              <Image
+                src={"/assets/icons/db.png"}
+                alt="db icon"
+                width={512}
+                height={512}
+              />
             </div>
             <div className="">
               <h3 className="font-bold">Deployment</h3>

@@ -16,8 +16,8 @@ export const upsertSettings = async (data) => {
       { new: true, upsert: true }
     );
     await reConstructBatches();
-    revalidatePath("/dashboard/settings");
     revalidatePath("/dashboard/batches");
+    revalidatePath("/dashboard/settings");
     revalidatePath("/");
     revalidatePath("/enroll");
     revalidatePath("/details");
@@ -32,8 +32,10 @@ export const getSettings = async () => {
   await connectToDb();
   try {
     const settings = await Setting.findOne({}).lean();
+
     return sendRes(settings);
   } catch (error) {
+    console.log(error);
     return sendRes(error.message);
   }
 };

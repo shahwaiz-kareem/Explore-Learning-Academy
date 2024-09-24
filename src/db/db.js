@@ -1,15 +1,14 @@
 import mongoose from "mongoose";
 
-export const connectToDb = async () => {
-  let isConnected = false;
+let isConnected = false;
 
+export const connectToDb = async () => {
   if (!isConnected) {
     try {
       await mongoose.connect(process.env.MONGO_URI);
+      isConnected = true;
     } catch (error) {
-      throw new Error("Database is not connected! error: " + error.message);
+      throw new Error("Database connection error: " + error.message);
     }
-  } else {
-    return console.log("Database is already connected");
   }
 };

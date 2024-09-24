@@ -5,19 +5,22 @@ import { Batch } from "@/models/batch.model";
 import { getStudents } from "./student.action";
 import { revalidatePath } from "next/cache";
 
-import { getSettings } from "./settings.action";
+import { getSettings as settingsApi } from "./settings.action";
 
 const sendRes = (res) => {
   return JSON.parse(JSON.stringify(res));
 };
 
-const settings = await getSettings();
+const getSettings = async () => {
+  return await settingsApi();
+};
 
 export const getBatches = async () => {
   await connectToDb();
 
   try {
     const students = await getStudents();
+    const settings = await getSettings();
     const dbBatches = await Batch.find();
     const maxStudents = settings.maxStudents;
     const batches = [];
@@ -70,6 +73,8 @@ export const registerBatch = async (batch_no) => {
   await connectToDb();
 
   try {
+    const settings = await getSettings();
+
     const maxStudents = settings.maxStudents;
 
     const students = await getStudents();
@@ -137,6 +142,7 @@ export const reConstructBatches = async () => {
   try {
     const dbBatches = await Batch.find();
     await Batch.deleteMany({});
+    const settings = await getSettings();
 
     const dbStudents = await getStudents();
     const maxStudents = settings.maxStudents;
@@ -184,8 +190,10 @@ export const getDetails = async () => {
   await connectToDb();
 
   try {
+    const settings = await getSettings();
     const maxStudents = settings.maxStudents;
     const activeBatch = await Batch.findOne({ active: true }).lean();
+
     let availableSeats = 0;
 
     if (activeBatch) availableSeats = maxStudents - activeBatch.students.length;

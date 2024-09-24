@@ -41,9 +41,7 @@ const Page = async () => {
           </p>
         </div>
 
-        {/* Responsive Layout */}
         <div className="flex flex-col-reverse lg:flex-row gap-12 lg:gap-8">
-          {/* Form Section */}
           <div className="flex-1">
             <EnrollForm />
           </div>
