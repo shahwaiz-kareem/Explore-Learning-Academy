@@ -19,8 +19,8 @@ export const getBatches = async () => {
   await connectToDb();
 
   try {
-    const students = await getStudents();
     const settings = await getSettings();
+    const students = await getStudents();
     const dbBatches = await Batch.find();
     const maxStudents = settings?.maxStudents;
     const batches = [];
@@ -141,7 +141,6 @@ export const reConstructBatches = async () => {
     const dbBatches = await Batch.find();
     await Batch.deleteMany({});
     const settings = await getSettings();
-
     const dbStudents = await getStudents();
     const maxStudents = settings?.maxStudents;
     let i = 0;
@@ -187,8 +186,8 @@ export const getDetails = async () => {
   await connectToDb();
 
   try {
-    const settings = await getSettings();
     const maxStudents = settings?.maxStudents;
+    const settings = await getSettings();
     const activeBatch = await Batch.findOne({ active: true }).lean();
 
     let availableSeats = 0;
