@@ -47,13 +47,15 @@ const Page = async () => {
             <EnrollForm />
           </div>
           <div className="flex-1 p-6 rounded-lg shadow-2xl flex flex-col justify-center items-center bg-gradient-to-tr from-[#00a1b4] via-[#00a8b4] to-[#00d899] text-white transform transition-all duration-300  hover:shadow-3xl">
-            <Image
-              className="py-2"
-              src={"/assets/logo.png"}
-              height={260}
-              alt="logo"
-              width={342}
-            />
+            <div className="h-auto w-auto">
+              <Image
+                className="py-2"
+                src={"/assets/logo.png"}
+                height={260}
+                alt="logo"
+                width={342}
+              />
+            </div>
             <h2 className="text-2xl font-semibold mb-4">Course Details</h2>
             <p className="text-lg">
               <strong>Start Date:</strong> {startDate}

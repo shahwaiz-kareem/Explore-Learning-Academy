@@ -32,8 +32,8 @@ export const enrollStudent = async (userData) => {
         { $push: { students: student } }
       );
     }
-    revalidatePath("dashboard/batches");
     revalidatePath("dashboard/");
+    revalidatePath("dashboard/batches");
     revalidatePath("/");
     return sendRes({
       success: true,
@@ -84,6 +84,9 @@ export const deleteStudent = async (_id, batch_no) => {
       { $pull: { students: { _id: new ObjectId(_id) } } }
     );
     const res = await reConstructBatches();
+    revalidatePath("dashboard/");
+    revalidatePath("dashboard/batches");
+    revalidatePath("/");
     return sendRes({
       success: true,
       data: res.batches[batch_no - 1],

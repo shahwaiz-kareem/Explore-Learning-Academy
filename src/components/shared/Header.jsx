@@ -8,13 +8,15 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-50 flex items-center justify-between bg-gradient-to-r from-[#00a1b4] via-[#00a8b4] to-[#00d899]  px-4 shadow-lg">
       <Menu />
-      <Image
-        className="py-2 "
-        src={"/assets/logo.png"}
-        alt="logo"
-        height={20}
-        width={75}
-      />
+      <div className="h-auto w-auto">
+        <Image
+          className="py-2 "
+          src={"/assets/logo.png"}
+          alt="logo"
+          height={20}
+          width={75}
+        />
+      </div>
 
       <div className="hidden sm:flex items-center gap-8">
         {navList.map((item) => {

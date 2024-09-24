@@ -22,6 +22,12 @@ export const getBatches = async () => {
     const settings = await getSettings();
     const students = await getStudents();
     const dbBatches = await Batch.find();
+    if (students.length === 0)
+      return sendRes({
+        success: true,
+        message: "Batches are created",
+        data: dbBatches,
+      });
     const maxStudents = settings?.maxStudents;
     const batches = [];
     const count = Math.ceil(students.length / maxStudents);
@@ -139,37 +145,49 @@ export const reConstructBatches = async () => {
 
   try {
     const dbBatches = await Batch.find();
-    await Batch.deleteMany({});
-    const settings = await getSettings();
     const dbStudents = await getStudents();
-    const maxStudents = settings?.maxStudents;
-    let i = 0;
-    const count = Math.ceil(dbStudents.length / maxStudents);
     const newBatches = [];
+    if (dbBatches.length > 0 && dbStudents.length > 0) {
+      await Batch.deleteMany({});
+      const settings = await getSettings();
+      const maxStudents = settings?.maxStudents;
+      let i = 0;
+      const count = Math.ceil(dbStudents.length / maxStudents);
 
-    while (i < count) {
-      const currentBatchStudents = dbStudents.slice(
-        i * maxStudents,
-        (i + 1) * maxStudents
-      );
+      while (i < count) {
+        const currentBatchStudents = dbStudents.slice(
+          i * maxStudents,
+          (i + 1) * maxStudents
+        );
 
-      const totalStudents = currentBatchStudents.length;
+        const totalStudents = currentBatchStudents.length;
 
-      const previousBatch = dbBatches[i] || {};
+        const previousBatch = dbBatches[i] || {};
 
-      newBatches.push({
-        batch_no: i + 1,
-        active: previousBatch.active || false,
-        students: currentBatchStudents,
-        totalStudents,
-        completed: totalStudents === maxStudents,
-        startDate: previousBatch.startDate || Date.now(),
+        newBatches.push({
+          batch_no: i + 1,
+          active: previousBatch.active || false,
+          students: currentBatchStudents,
+          totalStudents,
+          completed: totalStudents === maxStudents,
+          startDate: previousBatch.startDate || Date.now(),
+        });
+
+        i++;
+      }
+
+      await Batch.insertMany(newBatches);
+    } else {
+      const res = await Batch.create({
+        batch_no: 1,
+        active: false,
+        students: [],
+        totalStudents: 0,
+        completed: false,
+        startDate: Date.now(),
       });
-
-      i++;
+      newBatches.push(res);
     }
-
-    await Batch.insertMany(newBatches);
 
     revalidatePath("dashboard/batches");
 

@@ -16,13 +16,15 @@ const Menu = () => {
           showMenu ? "translate-x-0" : "-translate-x-full"
         } left-0 top-0 bg-gradient-to-br from-[#00a1b4] via-[#00a8b4] to-[#00d899]  shadow-lg h-screen w-2/3 z-40 flex flex-col gap-4 p-6 ease-in-out duration-500`}
       >
-        <Image
-          className=" py-1"
-          src={"/assets/logo.png"}
-          height={20}
-          alt="logo"
-          width={80}
-        />
+        <div className="h-auto w-auto">
+          <Image
+            className="py-2 "
+            src={"/assets/logo.png"}
+            alt="logo"
+            height={20}
+            width={80}
+          />
+        </div>
 
         <nav className="flex flex-col gap-6 mt-2">
           {navList.map((item) => (
