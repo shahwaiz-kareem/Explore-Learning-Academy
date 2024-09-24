@@ -1,5 +1,6 @@
 import { getBatches } from "@/actions/batch.action";
 import Link from "next/link";
+export const revalidate = 0;
 
 const Page = async () => {
   const res = await getBatches();
