@@ -9,6 +9,7 @@ import Link from "next/link";
 
 const Page = async () => {
   const data = await getDetails();
+  if (!data) return <p>Loading...</p>;
   return (
     <section className="flex flex-col gap-6 items-center px-2 justify-center">
       <div className="flex items-center justify-between mt-12 h-full px-2 sm:px-6 gap-6 lg:gap-2 flex-col lg:flex-row-reverse">

@@ -4,6 +4,7 @@ import SettingsForm from "@/components/forms/settingsForm";
 const Page = async () => {
   const res = await getSettings();
 
+  if (!res) return <p>Loading...</p>;
   return (
     <div className="flex flex-col  p-4">
       <h1 className="text-3xl font-bold mb-4">Settings</h1>
