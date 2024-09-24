@@ -93,11 +93,12 @@ export const registerBatch = async (batch_no) => {
       active: false,
       completed: currentBatchStudents.length === maxStudents,
       students: currentBatchStudents,
+      totalStudents: currentBatchStudents.length,
       startDate: Date.now(),
     });
 
-    revalidatePath(`dashboard/batches`);
     revalidatePath(`/`);
+    revalidatePath(`dashboard/batches`);
     return sendRes({
       success: true,
       message: "Batch is registered successfully",
@@ -113,7 +114,9 @@ export const updateBatch = async (_id, batchInfo) => {
 
   try {
     await Batch.findByIdAndUpdate(_id, { $set: { ...batchInfo } });
+    revalidatePath("/dashboard/");
     revalidatePath("/dashboard/batches");
+    revalidatePath("/");
     revalidatePath("/details");
 
     return sendRes({
@@ -189,6 +192,7 @@ export const reConstructBatches = async () => {
       newBatches.push(res);
     }
 
+    revalidatePath("dashboard/");
     revalidatePath("dashboard/batches");
 
     return sendRes({
