@@ -20,16 +20,16 @@ const Page = () => {
             <div className="flex items-center text-lg text-gray-700 mb-4">
               <FaPhoneAlt className="mr-2 text-[#00a1b4]" />
               <span>
-                <strong>Phone1:</strong> +923153642064
+                <strong>Phone-1:</strong> +923153642064
               </span>
             </div>
             <div className="flex items-center text-lg text-gray-700 mb-4">
               <FaPhoneAlt className="mr-2 text-[#00a1b4]" />
               <span>
-                <strong>Phone2:</strong> +92554507449
+                <strong>Phone-2:</strong> +923554507449
               </span>
             </div>
-            <div className="flex items-center text-lg text-gray-700 mb-4">
+            <div className="flex items-center overflow-x-scroll sm:overflow-x-auto text-lg text-gray-700 mb-4">
               <FaEnvelope className="mr-2 text-[#00a1b4]" />
               <span>
                 <strong>Email:</strong> yasin.explorelearningacademy@gmail.com
