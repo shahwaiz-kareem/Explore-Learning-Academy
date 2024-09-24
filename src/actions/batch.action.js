@@ -22,7 +22,7 @@ export const getBatches = async () => {
     const students = await getStudents();
     const settings = await getSettings();
     const dbBatches = await Batch.find();
-    const maxStudents = settings.maxStudents;
+    const maxStudents = settings?.maxStudents;
     const batches = [];
     const count = Math.ceil(students.length / maxStudents);
     let i = 0;
@@ -75,7 +75,7 @@ export const registerBatch = async (batch_no) => {
   try {
     const settings = await getSettings();
 
-    const maxStudents = settings.maxStudents;
+    const maxStudents = settings?.maxStudents;
 
     const students = await getStudents();
     const currentBatchStudents = students.slice(
@@ -143,7 +143,7 @@ export const reConstructBatches = async () => {
     const settings = await getSettings();
 
     const dbStudents = await getStudents();
-    const maxStudents = settings.maxStudents;
+    const maxStudents = settings?.maxStudents;
     let i = 0;
     const count = Math.ceil(dbStudents.length / maxStudents);
     const newBatches = [];
@@ -188,7 +188,7 @@ export const getDetails = async () => {
 
   try {
     const settings = await getSettings();
-    const maxStudents = settings.maxStudents;
+    const maxStudents = settings?.maxStudents;
     const activeBatch = await Batch.findOne({ active: true }).lean();
 
     let availableSeats = 0;

@@ -1,0 +1,16 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/(admin)/auth/signin/page": "app/(admin)/auth/signin/page.js",
+  "/(admin)/dashboard/batches/[batch_no]/[_id]/page": "app/(admin)/dashboard/batches/[batch_no]/[_id]/page.js",
+  "/(admin)/dashboard/batches/[batch_no]/page": "app/(admin)/dashboard/batches/[batch_no]/page.js",
+  "/(admin)/dashboard/batches/page": "app/(admin)/dashboard/batches/page.js",
+  "/(admin)/dashboard/contact/page": "app/(admin)/dashboard/contact/page.js",
+  "/(admin)/dashboard/faqs/page": "app/(admin)/dashboard/faqs/page.js",
+  "/(admin)/dashboard/notes/page": "app/(admin)/dashboard/notes/page.js",
+  "/(admin)/dashboard/page": "app/(admin)/dashboard/page.js",
+  "/(admin)/dashboard/settings/page": "app/(admin)/dashboard/settings/page.js",
+  "/(root)/page": "app/(root)/page.js",
+  "/(root)/contact/page": "app/(root)/contact/page.js",
+  "/(root)/enroll/page": "app/(root)/enroll/page.js",
+  "/(root)/details/page": "app/(root)/details/page.js"
+}
