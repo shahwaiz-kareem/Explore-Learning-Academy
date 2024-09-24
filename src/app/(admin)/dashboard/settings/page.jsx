@@ -5,7 +5,7 @@ const Page = async () => {
   const res = await getSettings();
 
   return (
-    <div className="flex flex-col    p-4">
+    <div className="flex flex-col  p-4">
       <h1 className="text-3xl font-bold mb-4">Settings</h1>
       <div className="px-2 lg:px-8 ">
         <SettingsForm
