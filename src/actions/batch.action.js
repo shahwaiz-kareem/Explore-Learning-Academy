@@ -186,8 +186,8 @@ export const getDetails = async () => {
   await connectToDb();
 
   try {
-    const maxStudents = settings?.maxStudents;
     const settings = await getSettings();
+    const maxStudents = settings?.maxStudents;
     const activeBatch = await Batch.findOne({ active: true }).lean();
 
     let availableSeats = 0;

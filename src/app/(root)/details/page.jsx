@@ -30,7 +30,7 @@ const Page = async () => {
     "december",
   ];
   const data = await getDetails();
-  const date = new Date(data.startDate);
+  const date = new Date(data?.startDate);
   const startDate = `${date.getDate()} ${
     months[date.getUTCMonth()]
   }, ${date.getFullYear()}`;
@@ -63,8 +63,8 @@ const Page = async () => {
           </h2>
           <p className="text-lg text-gray-700 mb-4">
             Our full-stack (mern-stack) course covers a comprehensive range of
-            technologies in just {data.duration} months. Learn the essentials of
-            web development with:
+            technologies in just {data?.duration} months. Learn the essentials
+            of web development with:
           </p>
           <ul className="list-disc list-inside text-lg text-gray-700 space-y-2">
             <li>HTML</li>

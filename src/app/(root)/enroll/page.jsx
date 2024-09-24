@@ -22,7 +22,7 @@ const Page = async () => {
     "december",
   ];
   const data = await getDetails();
-  const date = new Date(data.startDate);
+  const date = new Date(data?.startDate);
   const startDate = `${date.getDate()} ${
     months[date.getUTCMonth()]
   }, ${date.getFullYear()}`;
@@ -37,7 +37,7 @@ const Page = async () => {
           <p className="text-lg text-gray-600 mt-4">
             Join our full-stack web development course and learn HTML, CSS,
             JavaScript, Node.js, MongoDB, and Express , React in just{" "}
-            {data.duration} months.
+            {data?.duration} months.
           </p>
         </div>
 
@@ -58,10 +58,10 @@ const Page = async () => {
               <strong>Start Date:</strong> {startDate}
             </p>
             <p className="text-lg mt-2">
-              <strong>Course Duration:</strong> {data.duration} Months
+              <strong>Course Duration:</strong> {data?.duration} Months
             </p>
             <p className="text-lg mt-2">
-              <strong>Fee:</strong> Rs {data.feePerMonth}/month
+              <strong>Fee:</strong> Rs {data?.feePerMonth}/month
             </p>
 
             <span className="text-xl mt-2 font-semibold ">Timing:</span>
