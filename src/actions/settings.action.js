@@ -32,7 +32,6 @@ export const getSettings = async () => {
   await connectToDb();
   try {
     const settings = await Setting.findOne({});
-
     return sendRes(settings);
   } catch (error) {
     console.log(error);

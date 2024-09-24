@@ -22,7 +22,6 @@ const Page = async () => {
     "december",
   ];
   const data = await getDetails();
-  if (!data) return <p>Loading...</p>;
 
   const date = new Date(data?.startDate);
   const startDate = `${date.getDate()} ${
