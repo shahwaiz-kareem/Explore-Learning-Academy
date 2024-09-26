@@ -94,9 +94,18 @@ const Page = ({ params }) => {
                   return (
                     <p
                       key={key + `_${student.name}`}
-                      className="text-gray-700 capitalize"
+                      className="text-gray-700 "
                     >
-                      <span className="font-bold">
+                      <span
+                        className={
+                          "font-bold capitalize " +
+                          `${
+                            key === "email"
+                              ? "overflow-x-scroll sm:overflow-x-auto"
+                              : ""
+                          }`
+                        }
+                      >
                         {" "}
                         {keysObj[key] ? keysObj[key] : key}{" "}
                       </span>{" "}
